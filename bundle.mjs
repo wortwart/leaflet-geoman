@@ -23,9 +23,10 @@ const buildOptions = {
     '.css': 'css',
     '.svg': 'dataurl'
   },
-  minify: true,
+  minify: false,
   outfile: './dist/leaflet-geoman.js',
-  sourcemap: true,
+  sourcemap: false,
+	target: 'esnext',
 }
 
 const ctx = await esbuild.context({ ...buildOptions, plugins });

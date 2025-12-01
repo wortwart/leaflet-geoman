@@ -11,9 +11,11 @@ const SnapMixin = {
     this._layer.off('pm:dragstart', this._unsnap, this);
     this._layer.on('pm:dragstart', this._unsnap, this);
   },
+
   _disableSnapping() {
     this._layer.off('pm:dragstart', this._unsnap, this);
   },
+
   _assignEvents(markerArr) {
     // loop through marker array and assign events to the markers
     markerArr.forEach((marker) => {
@@ -63,6 +65,7 @@ const SnapMixin = {
       this._createSnapList();
     }
   },
+
   _handleSnapping(e) {
     const marker = e.target;
     marker._snapped = false;
@@ -179,6 +182,7 @@ const SnapMixin = {
 
     return true;
   },
+
   _createSnapList() {
     let layers = [];
     const debugIndicatorLines = [];
@@ -257,10 +261,15 @@ const SnapMixin = {
 
     this.debugIndicatorLines = debugIndicatorLines;
   },
+
   _handleSnapLayerRemoval({ layer }) {
     if (!layer._leaflet_id) {
       return;
     }
+		if (!this._snapList) {
+			console.warn('no snaplist!')
+			this._createSnapList();
+		}
     // find the layers index in snaplist
     const index = this._snapList.findIndex(
       (e) => e._leaflet_id === layer._leaflet_id
@@ -270,9 +279,11 @@ const SnapMixin = {
       this._snapList.splice(index, 1);
     }
   },
+
   _calcClosestLayer(latlng, layers) {
     return this._calcClosestLayers(latlng, layers, 1)[0];
   },
+
   _calcClosestLayers(latlng, layers, amount = 1) {
     // the closest polygon to our dragged marker latlng
     let closestLayers = [];
