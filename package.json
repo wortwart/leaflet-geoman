@@ -45,7 +45,7 @@
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "leaflet": "^1.2.0"
+    "leaflet": "github:wortwart/leaflet"
   },
   "scripts": {
     "start": "npm run dev",
@@ -61,7 +61,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/geoman-io/leaflet-geoman.git"
+    "url": "git://github.com/wortwart/leaflet-geoman.git"
   },
   "author": {
     "name": "Geoman.io",
