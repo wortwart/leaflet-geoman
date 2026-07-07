@@ -12,7 +12,7 @@ const Draw = L.Class.extend({
     tooltips: true,
     templineStyle: {},
     hintlineStyle: {
-      color: '#3388ff',
+      color: '#ff8833',
       dashArray: '5,5',
     },
     pathOptions: null,
